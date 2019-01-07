@@ -1,0 +1,25 @@
+problem
+
+fake gps position
+spoofing
+
+databashårdkodning av databas information
+
+Google geolocation
+
+Stream api, controller 
+filtrering av stream api
+Thymeleaf checkpointen 
+Spa React/spring  Jhipster
+CssGrid ( äldre webbläsarkompatibilitet/mobil anpassning)
+
+Azure - heroku
+Websocket -> info skickas till alla. React/java Spring magi tutorials "Kahoot" titta
+	Tunebasher -> previousexamen uppdrag
+google authentication färdiga apin
+	
+application server databaser, om vi hostar.
+datasource. application properties
+runtime passwords
+
+
