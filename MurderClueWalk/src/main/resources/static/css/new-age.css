@@ -289,7 +289,7 @@ section.features .feature-item i {
 section.cta {
   position: relative;
   padding: 250px 0;
-  background-image: url("../img/bg-cta.jpg");
+  background-image: url("/static/images/murdascene.jpg");
   background-position: center;
   background-size: cover;
 }
