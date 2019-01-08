@@ -39,7 +39,6 @@ public class User {
 //            int userMysteryID;
 
     @NonNull
-    @NotEmpty
     int age;
 
     @NonNull
