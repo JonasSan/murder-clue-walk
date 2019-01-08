@@ -1,9 +1,10 @@
 package com.SundayScaries.MurderClueWalk.domain;
 
 
-        import lombok.*;
-        import javax.persistence.Entity;
-        import javax.persistence.Id;
+import lombok.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 @RequiredArgsConstructor

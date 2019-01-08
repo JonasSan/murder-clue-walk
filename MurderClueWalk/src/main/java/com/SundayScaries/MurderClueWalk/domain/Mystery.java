@@ -24,16 +24,16 @@ public class Mystery {
     @NonNull
     String text;
 
-    @NonNull
-    @ManyToOne(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
-    int clueID;
+//    @NonNull
+//    @ManyToOne(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
+//    int clueID;
 
     @NonNull
     int score;
 
-    @NonNull
-    @ManyToOne(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
-    int userMysteryID;
+//    @NonNull
+//    @ManyToOne(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
+//    int userMysteryID;
 
     @Override
     public String toString() {
@@ -42,9 +42,7 @@ public class Mystery {
                 ", mysteryName='" + mysteryName + '\'' +
                 ", images='" + images + '\'' +
                 ", text='" + text + '\'' +
-                ", clueID=" + clueID +
                 ", score=" + score +
-                ", userMysteryID=" + userMysteryID +
                 '}';
     }
 }

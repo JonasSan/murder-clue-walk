@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -15,11 +15,11 @@ public class UserMystery {
     @GeneratedValue
     int userMysteryID;
 
-    @NonNull
-    @OneToMany(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
-            int userID;
-
-    @NonNull
-    @OneToMany(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
-            int mysteryID;
+//    @NonNull
+//    @OneToMany(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
+//            int userID;
+//
+//    @NonNull
+//    @OneToMany(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
+//            int mysteryID;
 }
