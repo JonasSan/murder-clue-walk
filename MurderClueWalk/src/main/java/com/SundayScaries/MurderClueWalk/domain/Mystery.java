@@ -2,10 +2,7 @@ package com.SundayScaries.MurderClueWalk.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 @RequiredArgsConstructor
@@ -28,15 +25,15 @@ public class Mystery {
     String text;
 
     @NonNull
-    @ManyToOne // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
-            int clueID;
+    @ManyToOne(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
+    int clueID;
 
     @NonNull
     int score;
 
     @NonNull
-    @ManyToOne // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
-            int userMysteryID;
+    @ManyToOne(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
+    int userMysteryID;
 
     @Override
     public String toString() {

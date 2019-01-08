@@ -1,13 +1,8 @@
 package com.SundayScaries.MurderClueWalk.domain;
 
-
-
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 @RequiredArgsConstructor
@@ -21,10 +16,10 @@ public class UserMystery {
     int userMysteryID;
 
     @NonNull
-    @OneToMany // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
+    @OneToMany(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
             int userID;
 
     @NonNull
-    @OneToMany // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
+    @OneToMany(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
             int mysteryID;
 }

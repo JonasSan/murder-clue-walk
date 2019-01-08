@@ -1,6 +1,5 @@
 package com.SundayScaries.MurderClueWalk.domain;
 
-
 import lombok.*;
 
 import javax.persistence.*;
@@ -29,14 +28,14 @@ public class User {
     String password;
 
     @NonNull
-    @OneToOne // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
+    @OneToOne(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
             int rankID;
 
     @NonNull
     double distance;
 
     @NonNull
-    @ManyToOne // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
+    @ManyToOne(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
             int userMysteryID;
 
     @NonNull
