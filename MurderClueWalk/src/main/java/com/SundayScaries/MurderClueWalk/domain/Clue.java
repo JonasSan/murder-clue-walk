@@ -1,6 +1,9 @@
 package com.SundayScaries.MurderClueWalk.domain;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +11,6 @@ import javax.persistence.Id;
 
 @Entity
 @RequiredArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 public class Clue {
@@ -18,7 +20,7 @@ public class Clue {
     int clueID;
 
     @NonNull
-    String clueName;
+    String clueText;
 
     @NonNull
     String location;
@@ -26,11 +28,14 @@ public class Clue {
     @NonNull
     String images;
 
+    @NonNull
+    int mysteryID;
+
     @Override
     public String toString() {
         return "Clue{" +
                 "clueID=" + clueID +
-                ", clueName='" + clueName + '\'' +
+                ", clueText='" + clueText + '\'' +
                 ", location='" + location + '\'' +
                 ", images='" + images + '\'' +
                 '}';

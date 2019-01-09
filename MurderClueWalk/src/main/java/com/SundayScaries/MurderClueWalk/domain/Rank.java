@@ -19,15 +19,11 @@ public class Rank {
     @NonNull
     int rankNumber;
 
-    @NonNull
-    int score;
-
     @Override
     public String toString() {
         return "Rank{" +
                 "rankID=" + rankID +
                 ", rankNumber=" + rankNumber +
-                ", score=" + score +
                 '}';
     }
 }

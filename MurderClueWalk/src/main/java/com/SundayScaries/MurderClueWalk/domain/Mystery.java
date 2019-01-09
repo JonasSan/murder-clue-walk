@@ -3,6 +3,8 @@ package com.SundayScaries.MurderClueWalk.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @RequiredArgsConstructor
@@ -24,16 +26,16 @@ public class Mystery {
     @NonNull
     String text;
 
-//    @NonNull
-//    @ManyToOne(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
-//    int clueID;
+    @NonNull
+    String location;
 
     @NonNull
     int score;
 
-//    @NonNull
-//    @ManyToOne(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
-//    int userMysteryID;
+    @NonNull
+    @OneToMany(fetch = FetchType.EAGER)
+            @JoinColumn(name = "mysteryID")
+    List<Clue> clues = new ArrayList<>();
 
     @Override
     public String toString() {

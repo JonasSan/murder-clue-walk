@@ -1,0 +1,56 @@
+body {
+background: black;
+color: whitesmoke;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.team-section{
+   overflow: hidden;
+   text-align: center;
+   background: black;
+   padding: 60 px;
+}
+
+.team-section h1 {
+   text-transform: uppercase;
+   margin-bottom: 60px;
+   color: white;
+   font-size: 40px;
+
+}
+
+.img {
+height: 200px;
+width: 200px;
+}
+
+.border{
+display:block;
+margin: auto;
+width: 160px;
+height: 3px;
+background: whitesmoke;
+margin-bottom: 40px;
+}

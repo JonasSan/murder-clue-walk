@@ -34,6 +34,9 @@ public class User {
     @NonNull
     double distance;
 
+    @NonNull
+    double score;
+
 //    @NonNull
 //    @ManyToOne(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
 //            int userMysteryID;

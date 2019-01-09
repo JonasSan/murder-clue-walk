@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="game.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="grid-container">
+    <div class="item1"><h1> Location 1</h1>
+    </div>
+
+    <div class="item2">
+        <img src="/images/scene.jpg">
+    </div>
+    <div class="item3">Map
+
+        <p>Click the button to get your coordinates.</p>
+
+        <button onclick="getLocation()">Try It</button>
+
+        <p id="demo"></p>
+
+        <script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
+        </script>
+
+    </div>
+    <div class="item4">Text</div>
+    <div class="item5">Text2</div>
+
+</div>
+
+
+</body>
+</html>
+
+
+
+
