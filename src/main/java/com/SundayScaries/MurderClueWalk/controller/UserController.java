@@ -31,4 +31,10 @@ public class UserController {
         return "game";
     }
 
+    @GetMapping("/profile")
+    public String profileview() {
+        return "profile";
+    }
+
+
 }
