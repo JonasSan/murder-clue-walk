@@ -25,6 +25,10 @@ public class UserController {
     public String aboutview() {
         return "about";
     }
+    @GetMapping("/tutorial")
+    public String tutorialview() {
+        return "tutorial";
+    }
 
     @GetMapping("/game")
     public String gameview() {
