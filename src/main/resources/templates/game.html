@@ -2,46 +2,106 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Game</title>
     <link href="game.css" rel="stylesheet"/>
 </head>
 <body>
+<div>
+    <ul>
+        <li><a class="active" href="/index">Home</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/profile">Profile</a></li>
 
+    </ul>
+</div>
 <div class="grid-container">
     <div class="item1"><h1> Location 1</h1>
     </div>
 
     <div class="item2">
-        <img src="/images/scene.jpg">
+        <img id="image" src="/images/scene.jpg">
     </div>
     <div class="item3">Map
+        <div id="googleMap" style="width:100%;height:400px;"></div>
+
+
+
+        <script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(51.508742,-0.120850),
+  zoom:5,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+
+
+
+        </script>
+        var myLatLng = {lat: 51.508742, lng: -0.120850};
+
+        var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: 'Hello World!'
+        });
+        <script>
+
+
+        </script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6Qgm21v7bv5aRtIWb8FnYG1GPx1TFIM0&callback=myMap"></script>
+
 
         <p>Click the button to get your coordinates.</p>
 
         <button onclick="getLocation()">Try It</button>
+        <button onclick="compareLocation()">Compare</button>
 
         <p id="demo"></p>
 
-        <script>
-var x = document.getElementById("demo");
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
+        <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+             navigator.geolocation.getCurrentPosition(showPosition);
+         } else {
+             x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
 
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
+        function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+
 }
+
+var Position = {lat: 51.508742, lng: -0.120850};
+
+function compareLocation () {
+if(Position= navigator.geolocation.getCurrentPosition(showPosition))
+console.log("Same position!");
+} else {
+console.log("False");
+
+
+
+}
+
+
         </script>
 
     </div>
-    <div class="item4">Text</div>
-    <div class="item5">Text2</div>
+    <div class="item4">Murderscene - clue 1
+        You (the detective) show up to the crime scene. There is a dead woman lying dead on the floor.
+        Next to her is a knife, but there doesn't seem to be any blood. Throughout the room there are signs of a struggle.
+        The woman does not appear to have died of natural causes. You see muddy footprints leading toward the door. You decide to follow them outside.
+    </div>
+    <div class="item5">Score</div>
+    <button type="button">Next Clue</button>
 
 </div>
 
