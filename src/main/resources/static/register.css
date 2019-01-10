@@ -44,8 +44,9 @@ li a:hover {
 
 /* Add padding to containers */
 .container {
+ opacity: 0.85;
  width: 320px;
- height: 720px;
+ height: 320px;
  background: #000;
  color: #fff;
  top: 50%;
@@ -53,8 +54,8 @@ li a:hover {
  position: absolute;
  transform: translate(-50%,-50%);
  box-sizing: border-box;
- padding: 70px 30px color: darkgrey;
- text-align: left;
+ padding: 30px 30px color: darkgrey;
+ text-align: center;
  }
 
 /* Full-width input fields */

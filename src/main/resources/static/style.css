@@ -8,8 +8,9 @@ font-family: sans-serif;
 }
 
 .loginbox{
+ opacity: 0.85;
  width: 320px;
- height: 420px;
+ height: 320px;
  background: #000;
  color: #fff;
  top: 50%;
@@ -17,7 +18,7 @@ font-family: sans-serif;
  position: absolute;
  transform: translate(-50%,-50%);
  box-sizing: border-box;
- padding: 70px 30px color: darkgrey;
+ padding: 30px 30px color: darkgrey;
  text-align: center;
  }
 
