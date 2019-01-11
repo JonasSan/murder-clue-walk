@@ -6,6 +6,10 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 @Entity
 @RequiredArgsConstructor
@@ -75,5 +79,29 @@ public class User {
                 ", gender=" + gender +
                 ", country='" + country + '\'' +
                 '}';
+    }
+
+    public String dogFact() {
+
+        String fact = "";
+
+        try {
+            String url = "jdbc:mysql://localhost:3306/nestingdoll?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+            Connection conn = DriverManager.getConnection(url, "root", "lösenord");
+            Statement stmt = conn.createStatement();
+            ResultSet rs;
+
+            rs = stmt.executeQuery("SELECT * FROM User");
+            while (rs.next()) {
+                fact = rs.getString("fact");
+                System.out.println(fact);
+            }
+
+            conn.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+        return fact;
     }
 }
