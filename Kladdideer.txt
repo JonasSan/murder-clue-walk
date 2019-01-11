@@ -1,4 +1,4 @@
-problem
+﻿problem
 
 fake gps position
 spoofing
@@ -21,5 +21,19 @@ google authentication färdiga apin
 application server databaser, om vi hostar.
 datasource. application properties
 runtime passwords
+
+session
+global state
+local storage, användaren kan gå in om man vill 
+skickar data mellan 
+
+nuvarande position. 
+dijkstra
+
+asynchrona anrop med databasen om man inte vill
+
+thymeleaf vanligt POST
+
+
 
 
