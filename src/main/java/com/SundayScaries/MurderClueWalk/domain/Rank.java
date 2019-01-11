@@ -14,10 +14,10 @@ import javax.persistence.Id;
 public class Rank {
 
     @Id
-    int rankID;
+    private int rankID;
 
     @NonNull
-    int rankNumber;
+    private int rankNumber;
 
     @Override
     public String toString() {
