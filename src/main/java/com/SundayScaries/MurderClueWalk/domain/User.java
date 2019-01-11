@@ -55,6 +55,15 @@ public class User {
     @NotEmpty
     private String country;
 
+
+    public User(@NonNull @Email @NotEmpty String loginName, @NonNull @Size(min = 5) String password, @NonNull @NotEmpty String gender,@NonNull int age,  @NonNull @NotEmpty String country) {
+        this.loginName = loginName;
+        this.password = password;
+        this.age = age;
+        this.gender = gender;
+        this.country = country;
+    }
+
     @Override
     public String toString() {
         return "User{" +
