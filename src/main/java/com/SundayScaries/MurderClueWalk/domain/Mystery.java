@@ -15,22 +15,22 @@ public class Mystery {
 
     @Id
     @GeneratedValue
-    int mysteryID;
+    private int mysteryID;
 
     @NonNull
-    String mysteryName;
+    private String mysteryName;
 
     @NonNull
-    String images;
+    private String images;
 
     @NonNull
-    String text;
+    private String text;
 
     @NonNull
-    String location;
+    private String location;
 
     @NonNull
-    int score;
+    private int score;
 
     @NonNull
     @OneToMany(fetch = FetchType.EAGER)

@@ -16,41 +16,44 @@ public class User {
 
     @Id
     @GeneratedValue
-    Long userID;
+    private int userID;
 
     @NonNull
     @Email
     @NotEmpty
-    String loginName;
+    private String loginName;
 
     @NonNull
     @Size(min = 5)
-    String password;
+    private String password;
 
 //    @NonNull
 ////    @OneToOne(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
 //    Rank rank;
 
     @NonNull
-    double distance;
+    private double distance;
 
     @NonNull
-    double score;
+    private double score;
+
+    @NonNull
+    private int rank;
 
 //    @NonNull
 //    @ManyToOne(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar
 //            int userMysteryID;
 
     @NonNull
-    int age;
+    private int age;
 
     @NonNull
     @NotEmpty
-    String gender;
+    private String gender;
 
     @NonNull
     @NotEmpty
-    String country;
+    private String country;
 
     @Override
     public String toString() {
