@@ -32,7 +32,7 @@ public class UserController {
         redirectAttributes
                 .addAttribute(user10)
                 .addFlashAttribute("success", true);
-        return "profile";
+        return "redirect:/profile";
     }
 
 
