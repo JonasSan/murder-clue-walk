@@ -32,6 +32,8 @@
     </style>
     <script>
 
+
+
   var map, infoWindow;
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -61,7 +63,7 @@
       handleLocationError(false, infoWindow, map.getCenter());
     }
   }
-   function createMarker() {
+ function createMarker() {
    var Kista = { lat: 59.402435, lng: 17.946482 };
    var marker = new google.maps.Marker({ position: Kista, map: map });
    var Kista2 = { lat: 58.402435, lng: 17.946482 };
@@ -82,31 +84,10 @@
                           'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
   }
-
-
-function measure(59.402435,17.946482, 58.402435, 17.946482){  // generally used geo measurement function
-    var R = 6378.137; // Radius of earth in KM
-    var dLat = 58.402435 * Math.PI / 180 - 59.402435 * Math.PI / 180;
-    var dLng = 17.946482 * Math.PI / 180 - 17.946482 * Math.PI / 180;
-    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-    Math.cos(59.402435 * Math.PI / 180) * Math.cos(58.402435 * Math.PI / 180) *
-    Math.sin(dLng/2) * Math.sin(dLng/2);
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    var d = R * c;
-    return d * 1000; // meters
-    console.log(d*1000)
-}
-}
-
-
 </script>
 
-
-
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_jwnTApaXdy0x7JR_ZqzzxL86__SQoUE&libraries=geometry&callback=initMap">
+    <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_jwnTApaXdy0x7JR_ZqzzxL86__SQoUE&amp;libraries=geometry&amp;callback=initMap">
     </script>
-
 
     <div class="item4">
         <p>Click the button to get your coordinates.</p>
@@ -124,9 +105,7 @@ function measure(59.402435,17.946482, 58.402435, 17.946482){  // generally used 
 <div class="item6">Score</div>
 
 <button type="button">Next Clue</button>
-
 </div>
-
 </body>
 </html>
 
