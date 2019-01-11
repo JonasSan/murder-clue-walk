@@ -1,4 +1,4 @@
 package com.SundayScaries.MurderClueWalk.controller;
 
-public class UserController {
+public class LoginController {
 }

@@ -13,7 +13,7 @@ public class UserMystery {
 
     @Id
     @GeneratedValue
-    int userMysteryID;
+    private int userMysteryID;
 
 //    @NonNull
 //    @OneToMany(fetch = FetchType.EAGER) // Låt denna vara på default EAGER men ändra till explicit EAGER om den inte fungerar

@@ -17,19 +17,19 @@ public class Clue {
 
     @Id
     @GeneratedValue
-    int clueID;
+    private int clueID;
 
     @NonNull
-    String clueText;
+    private String clueText;
 
     @NonNull
-    String location;
+    private String location;
 
     @NonNull
-    String images;
+    private String images;
 
     @NonNull
-    int mysteryID;
+    private int mysteryID;
 
     @Override
     public String toString() {

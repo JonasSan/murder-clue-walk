@@ -61,7 +61,7 @@
       handleLocationError(false, infoWindow, map.getCenter());
     }
   }
- function createMarker() {
+   function createMarker() {
    var Kista = { lat: 59.402435, lng: 17.946482 };
    var marker = new google.maps.Marker({ position: Kista, map: map });
    var Kista2 = { lat: 58.402435, lng: 17.946482 };
@@ -84,6 +84,20 @@
   }
 
 
+function measure(59.402435,17.946482, 58.402435, 17.946482){  // generally used geo measurement function
+    var R = 6378.137; // Radius of earth in KM
+    var dLat = 58.402435 * Math.PI / 180 - 59.402435 * Math.PI / 180;
+    var dLng = 17.946482 * Math.PI / 180 - 17.946482 * Math.PI / 180;
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(59.402435 * Math.PI / 180) * Math.cos(58.402435 * Math.PI / 180) *
+    Math.sin(dLng/2) * Math.sin(dLng/2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var d = R * c;
+    return d * 1000; // meters
+    console.log(d*1000)
+}
+}
+
 
 </script>
 
@@ -98,7 +112,7 @@
         <p>Click the button to get your coordinates.</p>
 
         <button onclick="getCurrentPosition()">Try It</button>
-        <button onclick="compareLocation()">Compare</button>
+        <button onclick="measure()">Compare</button>
 
     </div>
 </div>

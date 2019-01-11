@@ -27,26 +27,27 @@ public class DataBaseLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         String pw = BCrypt.hashpw("password", BCrypt.gensalt());
+        int ranking = 0;
 
-        User user1 = new User("random@email.com", pw, 10.15, 100, 20, "male", "sweden");
+        User user1 = new User("random@email.com", pw, 10.15, 100, 2, 20, "male", "sweden");
         UserService.save(user1);
         System.out.println(user1.toString());
 
         String pw2 = BCrypt.hashpw("qwerty", BCrypt.gensalt());
 
-        User user2 = new User("slump@email.com", pw2, 42.18, 500, 35, "female", "norway");
+        User user2 = new User("slump@email.com", pw2, 42.18, 500, 1, 35, "female", "norway");
         UserService.save(user2);
         System.out.println(user2.toString());
 
         String pw3 = BCrypt.hashpw("123456789", BCrypt.gensalt());
 
-        User user3 = new User("blabla@email.com", pw3, 0.75, 5, 20, "male", "denmark");
+        User user3 = new User("blabla@email.com", pw3, 0.75, 5, 4, 20, "male", "denmark");
         UserService.save(user3);
         System.out.println(user3.toString());
 
         String pw4 = BCrypt.hashpw("admin", BCrypt.gensalt());
 
-        User user4 = new User("blaha@email.com", pw4, 2.73, 20, 57, "female", "finland");
+        User user4 = new User("blaha@email.com", pw4, 2.73, 20, 3, 57, "female", "finland");
         UserService.save(user4);
         System.out.println(user4.toString());
 
@@ -72,5 +73,10 @@ public class DataBaseLoader implements CommandLineRunner {
 
 //SQL kod för H2
 //SELECT *
-//        FROM MYSTERY
-//        INNER JOIN Clue on Mystery.mysteryID = Clue.mysteryID;
+//FROM MYSTERY
+//INNER JOIN Clue on Mystery.mysteryID = Clue.mysteryID;
+
+//SQL kod för rank
+//SELECT *
+//FROM USER
+//ORDER BY score DESC;
