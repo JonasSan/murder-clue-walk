@@ -68,6 +68,13 @@
    var marker2 = new google.maps.Marker({ position: Kista2, map: map });
  }
 
+<!--function compareLocation() {-->
+    <!--var Kista = { lat: 59.402435, lng: 17.946482 };-->
+    <!--var Kista2 = { lat: 59.402435, lng: 17.946482 };-->
+    <!--if(google.maps.geometry.spherical.computeDistanceBetween(Kista,Kista2)<50){-->
+    <!--alert('You have arrived!');-->
+    <!--}-->
+
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(browserHasGeolocation ?
@@ -76,19 +83,15 @@
     infoWindow.open(map);
   }
 
-function compareLocation(pos, Kista) {
-
-  if (pos == Kista) {
-    alert ("It worked")
-  }
-}
 
 
 </script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_jwnTApaXdy0x7JR_ZqzzxL86__SQoUE&callback=initMap">
-    </script>
 
+
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_jwnTApaXdy0x7JR_ZqzzxL86__SQoUE&libraries=geometry&callback=initMap">
+    </script>
 
 
     <div class="item4">
@@ -98,8 +101,6 @@ function compareLocation(pos, Kista) {
         <button onclick="compareLocation()">Compare</button>
 
     </div>
-
-
 </div>
 <div class="item5">Murderscene - clue 1
     You (the detective) show up to the crime scene. There is a dead woman lying dead on the floor.
@@ -111,7 +112,6 @@ function compareLocation(pos, Kista) {
 <button type="button">Next Clue</button>
 
 </div>
-
 
 </body>
 </html>
