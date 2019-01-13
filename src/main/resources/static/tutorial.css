@@ -4,6 +4,8 @@ color: whitesmoke;
 background: url("/images/burglardanger.jpg");
 background-size: cover;
 background-position: center;
+margin: 0;
+padding: 0;
 }
 ul {
   list-style-type: none;
