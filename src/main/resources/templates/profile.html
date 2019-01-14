@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,11 +21,14 @@
         <div class="content">
         <h1>Profile Page</h1><br>
         <img>
-        <p>Name</p>
-        <p>Rank</p>
-        <p>Collected Clues</p>
-        <p>Murders Solved</p>
-        <p>Distance travelled</p>
+            <p th:text="'Name: ' + ${user.loginName}"/>
+            <p th:text="'Rank: ' + ${user.rank}"/>
+        <p>Collected Clues: 2</p>
+        <p>Murders Solved: 0</p>
+            <p th:text="'Distance: ' + ${user.distance}"/>
+            <p th:text="'Age: ' + ${user.age}"/>
+            <p th:text="'Gender: ' + ${user.gender}"/>
+            <p th:text="'Country: ' + ${user.country}"/>
         </div>
 
 </body>
