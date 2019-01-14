@@ -1,10 +1,13 @@
+body {
+background: black;
+color: whitesmoke;
+background: url("/images/profileBackground.png");
+background-size: 100%;
 
-    body {
-    background:black;
-    color: whitesmoke;
-    text-decoration: none; }
+
 margin: 0;
 padding: 0;
+}
 ul {
   list-style-type: none;
   margin: 0;
