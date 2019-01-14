@@ -13,7 +13,6 @@
         <li><a href="/about">About</a></li>
         <li><a href="/profile">Profile</a></li>
         <li><a href="/tutorial">How To Play</a></li>
-
     </ul>
 </div>
 <div class="grid-container">
@@ -34,7 +33,9 @@
 
 
 
-  var map, infoWindow;
+  var map, infoWindow, posA, posB;
+
+
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: -34.397, lng: 150.644},
@@ -51,13 +52,21 @@
           lng: position.coords.longitude
         };
 
+        posA=pos;
+
+ console.log(pos);
         infoWindow.setPosition(pos);
         infoWindow.setContent('Location found.');
+
         infoWindow.open(map);
         map.setCenter(pos);
+return posA;
+
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
       });
+      return position;
+
     } else {
       // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
@@ -68,14 +77,41 @@
    var marker = new google.maps.Marker({ position: Kista, map: map });
    var Kista2 = { lat: 58.402435, lng: 17.946482 };
    var marker2 = new google.maps.Marker({ position: Kista2, map: map });
+
+   posB=Kista
+   return posB;
  }
 
-<!--function compareLocation() {-->
-    <!--var Kista = { lat: 59.402435, lng: 17.946482 };-->
-    <!--var Kista2 = { lat: 59.402435, lng: 17.946482 };-->
-    <!--if(google.maps.geometry.spherical.computeDistanceBetween(Kista,Kista2)<50){-->
-    <!--alert('You have arrived!');-->
-    <!--}-->
+
+
+function compareLocation(posA,posB){
+
+
+posA = { lat: 59.402435, lng: 17.946482 };
+posB = { lat: 38.402435, lng: 15.946482};
+
+  let distance = Math.sqrt( (posA.lat - posB.lat)**2 + (posA.lng - posB.lng)**2 ); // (((Kista.lat-Kista2.lat)^2 +(Kista.lng-Kista2.lng)2 )^0.5);
+  console.log(distance);
+  document.getElementById("result").innerHTML = "Your distance to the destination is " + distance;
+  if (distance < 10){
+    document.getElementById("next").innerHTML = "Proceed to next clue";
+
+          var x = document.getElementById("hide");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+    return true;
+
+  }
+  else{
+    document.getElementById("next").innerHTML = "You have not yet arrived at the destination";
+
+return false;
+  }
+
+}
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
@@ -84,16 +120,21 @@
                           'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
   }
+
 </script>
 
     <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_jwnTApaXdy0x7JR_ZqzzxL86__SQoUE&amp;libraries=geometry&amp;callback=initMap">
     </script>
 
     <div class="item4">
-        <p>Click the button to get your coordinates.</p>
+        <p>Click the button to check if you're at the right location!</p>
 
-        <button onclick="getCurrentPosition()">Try It</button>
-        <button onclick="measure()">Compare</button>
+        <!-- <button onclick="getCurrentPosition()">Try It</button> -->
+
+        <button onclick="compareLocation()">Check distance</button>
+        <p id="result"></p>
+        <p id="next"></p>
+        <button id="hide" type="button" style="display:none">Next Clue</button>
 
     </div>
 </div>
@@ -104,7 +145,7 @@
 </div>
 <div class="item6">Score</div>
 
-<button type="button">Next Clue</button>
+
 </div>
 </body>
 </html>
