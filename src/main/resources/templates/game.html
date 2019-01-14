@@ -60,23 +60,25 @@
 
         infoWindow.open(map);
         map.setCenter(pos);
+
 return posA;
 
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
       });
-      return position;
+
 
     } else {
       // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
     }
   }
+
  function createMarker() {
-   var Kista = { lat: 59.402435, lng: 17.946482 };
+   var Kista = { lat: 59.402435, lng: 18.040762 };
    var marker = new google.maps.Marker({ position: Kista, map: map });
-   var Kista2 = { lat: 58.402435, lng: 17.946482 };
-   var marker2 = new google.maps.Marker({ position: Kista2, map: map });
+   <!--var Kista2 = { lat: 58.402435, lng: 17.946482 };-->
+   <!--var marker2 = new google.maps.Marker({ position: Kista2, map: map });-->
 
    posB=Kista
    return posB;
@@ -84,11 +86,12 @@ return posA;
 
 
 
-function compareLocation(posA,posB){
+function compareLocation(){
 
+    // console.log(posA,posB)
 
-posA = { lat: 59.402435, lng: 17.946482 };
-posB = { lat: 38.402435, lng: 15.946482};
+// posA = { lat: 59.402435, lng: 17.946482 };
+// posB = { lat: 58.402435, lng: 15.946482};
 
   let distance = Math.sqrt( (posA.lat - posB.lat)**2 + (posA.lng - posB.lng)**2 ); // (((Kista.lat-Kista2.lat)^2 +(Kista.lng-Kista2.lng)2 )^0.5);
   console.log(distance);
