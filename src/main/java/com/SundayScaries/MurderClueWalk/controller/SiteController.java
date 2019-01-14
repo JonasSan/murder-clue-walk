@@ -39,6 +39,11 @@ public class SiteController {
         return "profile";
     }
 
+    @GetMapping("/game2")
+    public String game2view() {
+        return "game2";
+    }
+
 
 
 }
