@@ -2,14 +2,14 @@ body {
 margin: 0;
 padding: 0;
 background: url("/images/murdascene.jpg");
-background-size: 100%;
+background-size: 95%;
 
 }
 
 .loginbox{
  opacity: 0.85;
- width: 320px;
- height: 320px;
+ width: 420px;
+ height: 420px;
  background: #000;
  color: #fff;
  top: 50%;
@@ -19,6 +19,7 @@ background-size: 100%;
  box-sizing: border-box;
  padding: 30px 30px color: darkgrey;
  text-align: center;
+ text: 16px;
  }
 
  h1 {
@@ -50,4 +51,9 @@ li a {
 
 li a:hover {
   background-color: #111;
+}
+
+.devP {
+color: white
+text-align: right;
 }
