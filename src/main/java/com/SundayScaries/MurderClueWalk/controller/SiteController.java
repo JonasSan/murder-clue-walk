@@ -43,7 +43,5 @@ public class SiteController {
     public String game2view() {
         return "game2";
     }
-
-
-
+    
 }
