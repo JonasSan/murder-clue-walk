@@ -34,6 +34,23 @@ asynchrona anrop med databasen om man inte vill
 
 thymeleaf vanligt POST
 
+PRESENTATIONS NOTES.
+
+*Utseende lägg till musik enhetligt
+*Titta på bilder koppla till clues
+*Teknikerna kopplade till iconer
+
+Göra om text med stödpunkter
+övergripande färgtema.
+Hållbarhet en egendel på slutet
+
+koppla tekniker till visningen av spelet.
+
+Snickra ihop ett manus.
+Utmaningar/ lärdomar
+Personliga anekdoter
+NUDGING!!!!!!!
+visa mobilaanpassat
 
 
 
