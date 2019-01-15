@@ -53,4 +53,10 @@ public class SiteController {
     public String quizview() {
         return "quiz1";
     }
+    @GetMapping("/startGame")
+    public String startGame() {
+        return "startGame";
+    }
+
+
 }

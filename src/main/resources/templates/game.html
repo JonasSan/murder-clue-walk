@@ -6,6 +6,7 @@
     <link href="game.css" rel="stylesheet"/>
 </head>
 <body>
+<audio id="my_audio" src="/sounds/backgroundSound.mp3" loop="loop"></audio>
 <div>
     <ul>
         <li><a class="active" href="/index">Home</a></li>
@@ -30,8 +31,15 @@
         color: black;
        }
     </style>
+
+
+
+
     <script>
 
+    window.onload = function() {
+    document.getElementById("my_audio").play();
+}
 
 
   var map, infoWindow, posA, posB;
@@ -130,6 +138,13 @@ return false;
     infoWindow.open(map);
   }
 
+
+function checkButton() {
+window.location.href = "/game2";
+
+}
+
+
 </script>
 
     <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_jwnTApaXdy0x7JR_ZqzzxL86__SQoUE&amp;libraries=geometry&amp;callback=initMap">
@@ -146,7 +161,7 @@ return false;
         <button id="Check" onclick="compareLocation()">Check location</button>
         <p id="result"></p>
         <p id="next"></p>
-        <button onclick= "location.href='/game2'" id="hide" type="button" style="display:none">Next Clue</button>
+        <button onclick= "checkButton()" id="hide" type="button" style="display:none">Next Clue</button>
         <!--<a id="hiddenButton" href="/game2">Next Clue</a>-->
 
 

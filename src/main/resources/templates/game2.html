@@ -6,6 +6,7 @@
     <link href="game.css" rel="stylesheet"/>
 </head>
 <body>
+<audio id="my_audio" src="/sounds/backgroundSound.mp3" loop="loop"></audio>
 <div>
     <ul>
         <li><a class="active" href="/index">Home</a></li>
@@ -31,6 +32,11 @@
        }
     </style>
     <script>
+
+        window.onload = function() {
+    document.getElementById("my_audio").play();
+}
+
 
 
 
