@@ -11,22 +11,23 @@
         <li><a class="active" href="/index">Home</a></li>
         <li><a href="/register">Register</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/profile">Profile</a></li>
+
         <li><a href="/tutorial">How To Play</a></li>
     </ul>
 </div>
 <div class="grid-container">
-    <div class="item1"><h1> Location 2 - The park </h1>
+    <div class="item1"><h1> Location 3 - The abandoned building </h1>
     </div>
 
     <div class="item2">
-        <img id="image" src="images/scene2.jpg">
+        <img id="image" src="images/scene3.jpg">
     </div>
     <div class="item3" id="map"></div>
     <style>
       #map {
         height: 100%;
         width: 100%;
+        color: black;
        }
     </style>
     <script>
@@ -75,7 +76,8 @@ return posA;
   }
 
  function createMarker() {
-   var Kista = { lat: 59.402435, lng: 18.040762 };
+
+   var Kista = { lat: 29.347774, lng: 12.042158 };
    var marker = new google.maps.Marker({ position: Kista, map: map });
    <!--var Kista2 = { lat: 58.402435, lng: 17.946482 };-->
    <!--var marker2 = new google.maps.Marker({ position: Kista2, map: map });-->
@@ -95,9 +97,14 @@ function compareLocation(){
 
   let distance = Math.sqrt( (posA.lat - posB.lat)**2 + (posA.lng - posB.lng)**2 ); // (((Kista.lat-Kista2.lat)^2 +(Kista.lng-Kista2.lng)2 )^0.5);
   console.log(distance);
-  document.getElementById("result").innerHTML = "Your distance to the destination is " + distance;
+
+
+ <!--för att visa distance: -->
+  <!--document.getElementById("result").innerHTML = "You have arrived at the right location" + distance;-->
+
   if (distance < 10){
-    document.getElementById("next").innerHTML = "Proceed to next clue";
+  document.getElementById("result").innerHTML = "You have arrived at the right location";
+    document.getElementById("next").innerHTML = "Proceed to the next clue";
 
           var x = document.getElementById("hide");
   if (x.style.display === "none") {
@@ -140,15 +147,18 @@ return false;
         <p id="result"></p>
         <p id="next"></p>
         <button href="/game2" id="hide" type="button" style="display:none">Next Clue</button>
-        <a href="/game2">Next Clue</a>
+        <a id="hiddenButton" href="/game3">Next Clue</a>
 
 
     </div>
 
     <div class="item5">
-        <h2>Clue 1</h2>
+        <h2>Clue 3</h2>
 
-        <div class="clue">You follow the footprints to the park across the street. There homeless man sitting on a bench right where the footprints end. You decide to confront him. "Did you see anybody come by here recently? I have been following footprints that end right here where you are and those boots you are wearing seem to match the prints." "A man gave me these as he was running into the park."
+        <div class="clue"> As you enter the building you see a dark silhouette disappear around the corner on the far end of the corridor. Running as silently as possibly you approach the corner and as you
+
+
+
         </div>
         <br>
     </div>

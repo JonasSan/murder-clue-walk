@@ -11,7 +11,7 @@
         <li><a class="active" href="/index">Home</a></li>
         <li><a href="/register">Register</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/profile">Profile</a></li>
+
         <li><a href="/tutorial">How To Play</a></li>
     </ul>
 </div>
@@ -20,13 +20,14 @@
     </div>
 
     <div class="item2">
-        <img id="image" src="images/scene.jpg">
+        <img id="image" src="images/scene1.jpg">
     </div>
     <div class="item3" id="map"></div>
     <style>
       #map {
         height: 100%;
         width: 100%;
+        color: black;
        }
     </style>
     <script>
@@ -95,9 +96,14 @@ function compareLocation(){
 
   let distance = Math.sqrt( (posA.lat - posB.lat)**2 + (posA.lng - posB.lng)**2 ); // (((Kista.lat-Kista2.lat)^2 +(Kista.lng-Kista2.lng)2 )^0.5);
   console.log(distance);
-  document.getElementById("result").innerHTML = "Your distance to the destination is " + distance;
+
+
+ <!--för att visa distance: -->
+  <!--document.getElementById("result").innerHTML = "You have arrived at the right location" + distance;-->
+
   if (distance < 10){
-    document.getElementById("next").innerHTML = "Proceed to next clue";
+  document.getElementById("result").innerHTML = "You have arrived at the right location";
+    document.getElementById("next").innerHTML = "Proceed to the next clue";
 
           var x = document.getElementById("hide");
   if (x.style.display === "none") {
@@ -140,7 +146,7 @@ return false;
         <p id="result"></p>
         <p id="next"></p>
         <button href="/game2" id="hide" type="button" style="display:none">Next Clue</button>
-        <a href="/game2">Next Clue</a>
+        <a id="hiddenButton" href="/game2">Next Clue</a>
 
 
     </div>
@@ -148,9 +154,9 @@ return false;
 <div class="item5">
     <h2>Clue 1</h2>
 
-    <div class="clue">You (the detective) show up to the crime scene. There is a dead woman lying dead on the floor.
+    <div class="clue">You (the detective) show up at the crime scene. There is a dead woman lying on the floor.
         Next to her is a knife, but there doesn't seem to be any blood. Throughout the room there are signs of a struggle.
-        The woman does not appear to have died of natural causes. You see muddy footprints leading toward the door. You decide to follow them outside.
+        The woman does not appear to have died of natural causes. You see muddy footprints leading towards the door. You decide to follow them outside.
     </div>
     <br>
 </div>

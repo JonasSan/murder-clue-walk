@@ -1,6 +1,7 @@
 body {
 margin: 0;
 padding: 0;
+color: white;
 }
 
 .item1 {
@@ -28,9 +29,9 @@ padding: 0;
   display: grid;
   grid-template-areas:
     "header header header header header header"
+    "right right right buttons buttons buttons"
     "menu menu  menu main main main"
-    "menu menu  menu main main main"
-    "right right right buttons buttons buttons";
+    "menu menu  menu main main main";
   grid-gap: 10px;
   background-color: #353638;
   padding: 10px;
@@ -66,7 +67,8 @@ li a:hover {
 }
 
 .clue {
-  border-left: 6px solid black;
-  background-color: lightgrey;
   font-size: 20px;
 }
+
+#hiddenButton {
+color: #353638;}
