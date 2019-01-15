@@ -44,12 +44,13 @@ public class SiteController {
         return "game2";
     }
 
-
     @GetMapping("/game3")
     public String game3view() {
         return "game3";
     }
 
-
-
+    @GetMapping("/quiz1")
+    public String quizview() {
+        return "quiz1";
+    }
 }
