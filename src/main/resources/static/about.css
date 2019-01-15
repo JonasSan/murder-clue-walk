@@ -39,14 +39,15 @@ li a:hover {
    text-transform: uppercase;
    margin-bottom: 60px;
    color: white;
-   font-size: 40px;
+   font-size: 55px;
 
 }
 
-.img {
-height: 200px;
-width: 200px;
+.team-section p {
+ font-size: 18px;
 }
+
+
 
 .border{
 display:block;
@@ -56,3 +57,19 @@ height: 3px;
 background: whitesmoke;
 margin-bottom: 40px;
 }
+
+
+ .container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 200px;
+   border: 1px solid black;
+ }
+
+ .social {
+   position: relative;
+   display: inline-block;
+   float: left;
+   padding: 10px;
+ }
