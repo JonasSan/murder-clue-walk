@@ -2,7 +2,9 @@ body {
 margin: 0;
 padding: 0;
 color: white;
+
 }
+
 
 .item1 {
   grid-area: header;
