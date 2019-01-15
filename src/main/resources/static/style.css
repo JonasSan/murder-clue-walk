@@ -53,7 +53,7 @@ li a:hover {
   background-color: #111;
 }
 
-.devP {
-color: white
-text-align: right;
+.developers {
+  color: white
+  float:right;
 }

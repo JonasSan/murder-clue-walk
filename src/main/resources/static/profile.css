@@ -89,3 +89,19 @@ hr {
 .registerbtn:hover {
   opacity: 1;
 }
+
+.content{
+ opacity: 0.85;
+ width: 420px;
+ height: 420px;
+ background: #000;
+ color: #fff;
+ top: 50%;
+ left: 50%;
+ position: absolute;
+ transform: translate(-50%,-50%);
+ box-sizing: border-box;
+ padding: 30px 30px color: darkgrey;
+ text-align: center;
+ text: 16px;
+ }

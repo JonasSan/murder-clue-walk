@@ -44,6 +44,7 @@ public class SiteController {
         return "game2";
     }
 
+
     @GetMapping("/game3")
     public String game3view() {
         return "game3";
