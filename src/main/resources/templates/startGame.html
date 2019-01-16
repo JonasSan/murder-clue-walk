@@ -12,28 +12,36 @@
         <li><a class="active" href="/index">Home</a></li>
         <li><a href="/register">Register</a></li>
         <li><a href="/about">About</a></li>
-
         <li><a href="/tutorial">How To Play</a></li>
     </ul>
 </div>
 <div class="grid-container">
-    <div class="item1"><h1> Murder clue walk </h1>
+    <div class="item1">
+        <br>
+        <br>
     </div>
 
 
     <script>
-        //input script
+   window.onload = function() {
+    document.getElementById("my_audio").play();
+}
 
     </script>
 
+    <div class="team-section">
+        <h1>Murder Clue Walk</h1>
 
-    <div class="startBtn">
-
-
-
-        <button onclick= "location.href='/game'" id="start" type="button">Start Game</button>
-        <!--<a id="hiddenButton" href="/game2">Next Clue</a>-->
-
+        <span class="border"></span>
+        <p>Are you ready to challenge yourself and your friends to solve a mysterious murder case?<br>
+            Do you think you got what it takes to be a real detective?<br>
+            This game will require both physical and mental commitment, so be well prepared!  <br>
+           If you think you are ready for this task, press "Start Game"<br>
+        <div class="startBtn">
+            <button onclick="location.href='/game'" id="start" type="button">Start Game</button>
+            <!--<a id="hiddenButton" href="/game2">Next Clue</a>-->
+        </div>
+        <br>
     </div>
 
 
