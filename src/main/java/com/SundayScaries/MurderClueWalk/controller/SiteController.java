@@ -49,14 +49,18 @@ public class SiteController {
         return "game3";
     }
 
-    @GetMapping("/quiz1")
-    public String quizview() {
-        return "quiz1";
-    }
+
     @GetMapping("/startGame")
     public String startGame() {
         return "startGame";
     }
+
+    @GetMapping("/quiz")
+    public String quiz() {
+        return "quiz";
+    }
+
+
 
 
 }
