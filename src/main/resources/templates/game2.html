@@ -6,7 +6,7 @@
     <link href="game.css" rel="stylesheet"/>
 </head>
 <body>
-<audio id="my_audio" src="/sounds/backgroundSound.mp3" loop="loop"></audio>
+<audio id="my_audio" src="/sounds/Asylum.mp3" loop="loop"></audio>
 <div>
     <ul>
         <li><a class="active" href="/index">Home</a></li>
@@ -22,6 +22,7 @@
 
     <div class="item2">
         <img id="image" src="images/scene2.jpg">
+        <img id="imageBoot" src="images/boot.png">
     </div>
     <div class="item3" id="map"></div>
     <style>
@@ -36,8 +37,13 @@
         window.onload = function() {
     document.getElementById("my_audio").play();
 }
+var clueisfound = false;
 
-
+document.getElementById('imageBoot').onclick = function(event) {
+    document.getElementById('imageBoot').className = "hidden";
+    alert("Boot added as clue");
+      clueisfound = true;
+}
 
 
   var map, infoWindow, posA, posB;
@@ -108,7 +114,7 @@ function compareLocation(){
  <!--för att visa distance: -->
   <!--document.getElementById("result").innerHTML = "You have arrived at the right location" + distance;-->
 
-  if (distance < 10){
+  if (distance < 10 && clueisfound == true){
   document.getElementById("result").innerHTML = "You have arrived at the right location!";
     document.getElementById("next").innerHTML = "Proceed to the next clue.";
 
@@ -121,13 +127,17 @@ function compareLocation(){
     return true;
 
   }
-  else{
-    document.getElementById("next").innerHTML = "You have not yet arrived at the destination!";
-
+  else if (distance > 10 && clueisfound == true){
+    document.getElementById("next").innerHTML = "You are at the wrong location!";
+return false;
+  }
+  else {
+  document.getElementById("next").innerHTML = "You have not found the clue yet!";
 return false;
   }
 
 }
+
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
@@ -146,11 +156,11 @@ return false;
         <br>
         <br>
         <br>
-        <p>Click the button to check if you're at the right location!</p>
+        <p>Click the button to check your progress!</p>
 
         <!-- <button onclick="getCurrentPosition()">Try It</button> -->
 
-        <button id="Check" onclick="compareLocation()">Check location</button>
+        <button id="Check" onclick="compareLocation()">Check progress</button>
         <p id="result"></p>
         <p id="next"></p>
         <button onclick= "location.href='/game3'" id="hide" type="button" style="display:none">Next Clue</button>
@@ -162,8 +172,8 @@ return false;
     <div class="item5">
         <h2>Clue 2</h2>
 
-        <div class="clue">You follow the footprints to the park across the street. There is a homeless man sitting on a bench right where the footprints end. You decide to confront him. "Did you see anybody come by here recently? I have been following footprints that end right here where you are and those boots you are wearing seem to match the prints."
-            "A man gave me these as he was running towards that building over there. He seemed to be in a hurry." Without hesitation you hurry towards the building that seems abandoned.
+        <div class="clue">You follow the footprints to the park across the street. There is a homeless man sitting on a bench right where the footprints end. You decide to confront him.<br> "Did you see anybody come by here recently? I have been following footprints that end right here and those boots you are wearing seem to match the prints."
+            <br>"I found these in the trash can over there, I saw a man throwing them away before running towards that building over there. He seemed to be in a hurry." <br> Without hesitation you make your way towards the building. It seems abandoned.
 
 
         </div>

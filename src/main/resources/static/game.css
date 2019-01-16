@@ -23,18 +23,29 @@ color: white;
   grid-area: header;
 }
 .item2 {
+position: relative;
+  top: 0;
+  left: 0;
   grid-area: menu;
 }
+
+.hidden {display:none;}
+   .show {display:inLine !important;}
+
+
 .item3 {
   grid-area: main;
 }
+
 .item4 {
   grid-area: buttons;
     font-size: 20px;
     opacity: 0.65;
-
      background: #000;
      color: #fff;
+border-style: double;
+border-width: 5px;
+
 
 }
 .item5 {
@@ -44,6 +55,10 @@ color: white;
 
    background: #000;
    color: #fff;
+   border-style: double;
+   border-width: 5px;
+
+
 
 
 
@@ -92,6 +107,48 @@ li a:hover {
   width: 100%;
   height: 100%;
 }
+
+.im {
+position: relative;
+left: 0px;
+top: 0px;
+
+}
+
+#imageKnife {
+width: 400px;
+height: 440px;
+position: absolute;
+  top: 60%;
+  left: 55%;
+  max-width: 25%;
+  max-height: 25%;
+
+}
+
+#imageBoot {
+width: 165px;
+height: 150px;
+position: absolute;
+  top: 65%;
+  left: 60%;
+  max-width: 20%;
+  max-height: 20%;
+
+}
+
+#imageButton {
+width: 40px;
+height: 40px;
+position: absolute;
+  top: 60%;
+  left: 60%;
+  max-width: 20%;
+  max-height: 20%;
+
+}
+
+
 
 .clue {
   font-size: 20px;

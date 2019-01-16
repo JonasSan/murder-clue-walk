@@ -21,7 +21,10 @@
     </div>
 
     <div class="item2">
-        <img id="image" src="images/scene1.jpg">
+        <div class="im">
+        <img id="image" src="images/scene.png">
+        <img id="imageKnife" src="images/knife.png">
+        </div>
     </div>
     <div class="item3" id="map"></div>
     <style>
@@ -40,6 +43,16 @@
     window.onload = function() {
     document.getElementById("my_audio").play();
 }
+
+var clueisfound = false;
+
+document.getElementById('imageKnife').onclick = function(event) {
+    document.getElementById('imageKnife').className = "hidden";
+    alert("Knife added as clue");
+    clueisfound = true;
+}
+
+
 
 
   var map, infoWindow, posA, posB;
@@ -109,7 +122,7 @@ function compareLocation(){
  <!--för att visa distance: -->
   <!--document.getElementById("result").innerHTML = "You have arrived at the right location!" + distance;-->
 
-  if (distance < 10){
+  if (distance < 10 && clueisfound == true){
   document.getElementById("result").innerHTML = "You have arrived at the right location!";
     document.getElementById("next").innerHTML = "Proceed to the next clue.";
 
@@ -122,9 +135,12 @@ function compareLocation(){
     return true;
 
   }
-  else{
-    document.getElementById("next").innerHTML = "You have not yet arrived at the destination";
-
+  else if (distance > 10 && clueisfound == true){
+    document.getElementById("next").innerHTML = "You are at the wrong location!";
+return false;
+  }
+  else {
+  document.getElementById("next").innerHTML = "You have not found the clue yet!";
 return false;
   }
 
@@ -154,11 +170,11 @@ window.location.href = "/game2";
         <br>
         <br>
         <br>
-        <p>Click the button to check if you're at the right location!</p>
+        <p>Click the button to check your progress!</p>
 
         <!-- <button onclick="getCurrentPosition()">Try It</button> -->
 
-        <button id="Check" onclick="compareLocation()">Check location</button>
+        <button id="Check" onclick="compareLocation()">Check progress</button>
         <p id="result"></p>
         <p id="next"></p>
         <button onclick= "checkButton()" id="hide" type="button" style="display:none">Next Clue</button>
@@ -170,9 +186,11 @@ window.location.href = "/game2";
 <div class="item5">
     <h2>Clue 1</h2>
 
-    <div class="clue">You (the detective) show up at the crime scene. There is a dead woman lying on the floor.
-        Next to her is a knife, but there doesn't seem to be any blood. Throughout the room there are signs of a struggle.
-        The woman does not appear to have died of natural causes. You see muddy footprints leading towards the door. You decide to follow them outside.
+    <div class="clue">You (the detective) show up at the crime scene. There is a dead woman lying on the ground.
+        Next to her is a knife, but there doesn't seem to be any blood. There are no signs of a struggle either, but
+        the woman does not appear to have died of natural causes. Investigating the surroundings you find some footprints.
+        You decide to pick up the knife and follow the footprints.
+
     </div>
     <br>
 </div>

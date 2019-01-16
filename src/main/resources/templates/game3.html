@@ -7,7 +7,7 @@
     <link href="game.css" rel="stylesheet"/>
 </head>
 <body>
-<audio id="my_audio" src="/sounds/backgroundSound.mp3" loop="loop"></audio>
+<audio id="my_audio" src="/sounds/Asylum.mp3" loop="loop"></audio>
 <div>
     <ul>
         <li><a class="active" href="/index">Home</a></li>
@@ -23,6 +23,7 @@
 
     <div class="item2">
         <img id="image" src="images/scene3.jpg">
+        <img id="imageButton" src="images/button.png">
     </div>
     <div class="item3" id="map"></div>
     <style>
@@ -31,6 +32,7 @@
         width: 100%;
         color: black;
        }
+
     </style>
     <script>
 
@@ -38,6 +40,14 @@
     document.getElementById("my_audio").play();
 }
 
+
+var clueisfound = false;
+document.getElementById('imageButton').onclick = function(event) {
+    document.getElementById('imageButton').className = "hidden";
+    alert("Button added as clue");
+    clueisfound = true;
+
+}
 
 
 
@@ -109,9 +119,9 @@ function compareLocation(){
  <!--för att visa distance: -->
   <!--document.getElementById("result").innerHTML = "You have arrived at the right location" + distance;-->
 
-  if (distance < 10){
-  document.getElementById("result").innerHTML = "You have arrived at the right location";
-    document.getElementById("next").innerHTML = "Proceed to the next clue";
+  if (distance < 10 && clueisfound == true){
+  document.getElementById("result").innerHTML = "You have arrived at the right location!";
+    document.getElementById("next").innerHTML = "Proceed to the next clue.";
 
           var x = document.getElementById("hide");
   if (x.style.display === "none") {
@@ -122,13 +132,17 @@ function compareLocation(){
     return true;
 
   }
-  else{
-    document.getElementById("next").innerHTML = "You have not yet arrived at the destination!";
-
+  else if (distance > 10 && clueisfound == true){
+    document.getElementById("next").innerHTML = "You are at the wrong location!";
+return false;
+  }
+  else {
+  document.getElementById("next").innerHTML = "You have not found the clue yet!";
 return false;
   }
 
 }
+
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
@@ -138,23 +152,25 @@ return false;
     infoWindow.open(map);
   }
 
-</script>
 
-    <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_jwnTApaXdy0x7JR_ZqzzxL86__SQoUE&amp;libraries=geometry&amp;callback=initMap">
+    </script>
+
+    <script async="" defer=""
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_jwnTApaXdy0x7JR_ZqzzxL86__SQoUE&amp;libraries=geometry&amp;callback=initMap">
     </script>
 
     <div class="item4">
         <br>
         <br>
         <br>
-        <p>Click the button to check if you're at the right location!</p>
+        <p>Click the button to check your progress!</p>
 
         <!-- <button onclick="getCurrentPosition()">Try It</button> -->
 
-        <button id="Check" onclick="compareLocation()">Check location</button>
+        <button id="Check" onclick="compareLocation()">Check progress</button>
         <p id="result"></p>
         <p id="next"></p>
-        <button onclick= "location.href='/game'" id="hide" type="button" style="display:none">Next Clue</button>
+        <button onclick="location.href='/game'" id="hide" type="button" style="display:none">Next Clue</button>
         <!--<a id="hiddenButton" href="/game3">Next Clue</a>-->
 
 
@@ -163,8 +179,11 @@ return false;
     <div class="item5">
         <h2>Clue 3</h2>
 
-        <div class="clue"> As you enter the building you see a dark silhouette disappear around the corner on the far end of the corridor. You approach the corner and...
-
+        <div class="clue"> As you enter the building you see a dark silhouette disappear around the corner on the far
+            end
+            of the corridor. You approach the corner, but the man seems to have escaped through a window. You discover a
+            ripped off button on the floor.
+            Maybe this can help you identify the murderer. You jump out of the window and look for further traces...
 
 
         </div>
