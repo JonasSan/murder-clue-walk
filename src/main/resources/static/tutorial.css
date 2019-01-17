@@ -48,11 +48,13 @@ li a:hover {
 }
 
 #image1 {
+padding: 20px;
 height: 400px;
 width: 400px;
 }
 
 #image2 {
+padding: 20px;
 height: 400px;
 width: 400px;
 }
@@ -64,4 +66,14 @@ width: 160px;
 height: 3px;
 background: whitesmoke;
 margin-bottom: 40px;
+}
+
+.field{
+
+ opacity: 0.85;
+ width: 80%;
+margin: auto;
+ background: #000;
+ border-style: double;
+ border-width: 5px;
 }
