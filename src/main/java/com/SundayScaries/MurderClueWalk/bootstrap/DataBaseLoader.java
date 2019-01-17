@@ -62,23 +62,23 @@ public class DataBaseLoader implements CommandLineRunner {
         UserService.save(user4);
         System.out.println(user4.toString());
 
-
-        Mystery mystery1 = new Mystery("Death @ Kista", "N/A", "Random person is found dead somewhere....", "59.408, 17.943", 100);
-        MysteryService.save(mystery1);
-        System.out.println(mystery1.toString());
-
-
-        Clue clue1 = new Clue("You found a bowtie, it looks weird.....", "59.41, 17.95", "N/A", 10);
-        ClueService.save(clue1);
-        System.out.println(clue1.toString());
-
-        Clue clue2 = new Clue("You found a trench coat, it looks tacky.....", "59.411, 17.95", "N/A", 10);
-        ClueService.save(clue2);
-        System.out.println(clue2.toString());
-
-        Clue clue3 = new Clue("You found a bloody knife, and it was in your gut.....", "59.407, 17.947", "N/A", 10);
-        ClueService.save(clue3);
-        System.out.println(clue3.toString());
+        //FAKE LEDTRÅDAR OCH MYSTERIUM, BEHÅLL!!!!!
+//        Mystery mystery1 = new Mystery("Death @ Kista", "N/A", "Random person is found dead somewhere....", "59.408, 17.943", 100);
+//        MysteryService.save(mystery1);
+//        System.out.println(mystery1.toString());
+//
+//
+//        Clue clue1 = new Clue("You found a bowtie, it looks weird.....", "59.41, 17.95", "N/A", 10);
+//        ClueService.save(clue1);
+//        System.out.println(clue1.toString());
+//
+//        Clue clue2 = new Clue("You found a trench coat, it looks tacky.....", "59.411, 17.95", "N/A", 10);
+//        ClueService.save(clue2);
+//        System.out.println(clue2.toString());
+//
+//        Clue clue3 = new Clue("You found a bloody knife, and it was in your gut.....", "59.407, 17.947", "N/A", 10);
+//        ClueService.save(clue3);
+//        System.out.println(clue3.toString());
     }
 
     private void addUsersAndRoles() {
@@ -94,9 +94,9 @@ public class DataBaseLoader implements CommandLineRunner {
         user.addRole(userRole);
         userRepository.save(user);
 
-        User admin = new User("admin@gmail.com", secret, 42.18, 500, 1, 35, "female", "norway", true);
-        admin.addRole(adminRole);
-        userRepository.save(admin);
+//        User admin = new User("admin@gmail.com", secret, 42.18, 500, 1, 35, "female", "norway", true);
+//        admin.addRole(adminRole);
+//        userRepository.save(admin);
 
         User master = new User("super@gmail.com", secret, 0.75, 5, 4, 20, "male", "denmark", true);
         master.addRoles(new HashSet<>(Arrays.asList(userRole,adminRole)));

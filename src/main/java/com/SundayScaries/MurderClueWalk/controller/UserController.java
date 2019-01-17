@@ -70,7 +70,7 @@ public class UserController {
     @GetMapping("/findAllUsers")
     public String listUsers(Model model) {
         System.out.println("Vi är här 1");
-        Optional<User> user = userRepository.findById(1);
+        Optional<User> user = userRepository.findById(5);
         System.out.println(user);
         model.addAttribute("user", user.get());
         return "profile";
