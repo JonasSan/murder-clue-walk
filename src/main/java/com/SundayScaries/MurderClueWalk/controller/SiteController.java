@@ -60,7 +60,10 @@ public class SiteController {
         return "quiz";
     }
 
-
+    @GetMapping("/comingsoon")
+    public String comingsoon() {
+        return "comingsoon";
+    }
 
 
 }
