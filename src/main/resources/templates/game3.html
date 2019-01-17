@@ -36,17 +36,21 @@
     </style>
     <script>
 
-        window.onload = function() {
+
+    <!--When the page is started autoplay sound:-->
+
+    window.onload = function() {
     document.getElementById("my_audio").play();
 }
 
+<!--When the clue is clicked on set clueIsFound to true and delete the clue-image in the background-image-->
 
-var clueisfound = false;
+var clueIsFound = false;
+
 document.getElementById('imageButton').onclick = function(event) {
     document.getElementById('imageButton').className = "hidden";
     alert("Button added as clue");
-    clueisfound = true;
-
+    clueIsFound = true;
 }
 
 
@@ -93,15 +97,15 @@ return posA;
   }
 
  function createMarker() {
-
-   var Kista = { lat: 29.347774, lng: 12.042158 };
+   var Kista = { lat: 39.402435, lng: 15.040762 };
    var marker = new google.maps.Marker({ position: Kista, map: map });
-   <!--var Kista2 = { lat: 58.402435, lng: 17.946482 };-->
-   <!--var marker2 = new google.maps.Marker({ position: Kista2, map: map });-->
+
 
    posB=Kista
    return posB;
  }
+
+
 
 function getDistanceFromLatLonInKm() {
     var R = 6371; // Radius of the earth in km
@@ -114,59 +118,63 @@ function getDistanceFromLatLonInKm() {
       ;
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     var d = R * c; // Distance in km
-   document.getElementById("km").innerHTML = "Distance: " + d + " km";
+    var n = d.toFixed(2);
+   document.getElementById("km").innerHTML = "Distance: " + n + " km";
   }
+
+
 
   function deg2rad(deg) {
     return deg * (Math.PI/180)
   }
 
+
 function compareLocation(){
 
-    // console.log(posA,posB)
-
-// posA = { lat: 59.402435, lng: 17.946482 };
-// posB = { lat: 58.402435, lng: 15.946482};
-
-  let distance = Math.sqrt( (posA.lat - posB.lat)**2 + (posA.lng - posB.lng)**2 ); // (((Kista.lat-Kista2.lat)^2 +(Kista.lng-Kista2.lng)2 )^0.5);
-  console.log(distance);
+      let distance = Math.sqrt( (posA.lat - posB.lat)**2 + (posA.lng - posB.lng)**2 ); // (((Kista.lat-Kista2.lat)^2 +(Kista.lng-Kista2.lng)2 )^0.5);
+      console.log(distance);
 
 
- <!--för att visa distance: -->
-  <!--document.getElementById("result").innerHTML = "You have arrived at the right location" + distance;-->
+      if (distance < 10 && clueIsFound == true){
+      document.getElementById("result").innerHTML = "You have arrived at the right location!";
+        document.getElementById("next").innerHTML = "Proceed to the next clue.";
 
-  if (distance < 10 && clueisfound == true){
-  document.getElementById("result").innerHTML = "You have arrived at the right location!";
-    document.getElementById("next").innerHTML = "Proceed to the next clue.";
+              var x = document.getElementById("hide");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+        return true;
 
-          var x = document.getElementById("hide");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-    return true;
+      }
+      else if (distance > 10 && clueIsFound == true){
+        document.getElementById("next").innerHTML = "You are at the wrong location!";
+    return false;
+      }
+      else {
+      document.getElementById("next").innerHTML = "You have not found the clue yet!";
+    return false;
+      }
 
-  }
-  else if (distance > 10 && clueisfound == true){
-    document.getElementById("next").innerHTML = "You are at the wrong location!";
-return false;
-  }
-  else {
-  document.getElementById("next").innerHTML = "You have not found the clue yet!";
-return false;
-  }
+    }
 
-}
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
 
 
-  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-                          'Error: The Geolocation service failed.' :
-                          'Error: Your browser doesn\'t support geolocation.');
-    infoWindow.open(map);
-  }
+    function checkButton() {
+    window.location.href = "/game2";
+
+    }
+
+
+
 
 
     </script>
@@ -176,10 +184,8 @@ return false;
     </script>
 
     <div class="item4">
-        <br>
-        <br>
 
-        <p>Click the button to check your progress!</p>
+        <p>Click the buttons to check your progress!</p>
 
         <!-- <button onclick="getCurrentPosition()">Try It</button> -->
 
@@ -188,8 +194,8 @@ return false;
         <p id="km"></p>
         <p id="result"></p>
         <p id="next"></p>
-        <button onclick="location.href='/game'" id="hide" type="button" style="display:none">Next Clue</button>
-        <!--<a id="hiddenButton" href="/game3">Next Clue</a>-->
+        <button onclick="checkButton()" id="hide" type="button" style="display:none">Next Clue</button>
+        <!--<a id="hiddenButton" href="/game2">Next Clue</a>-->
 
 
     </div>

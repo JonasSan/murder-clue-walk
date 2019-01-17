@@ -121,8 +121,11 @@ function getDistanceFromLatLonInKm() {
       ;
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     var d = R * c; // Distance in km
-   document.getElementById("km").innerHTML = "Distance: " + d + " km";
+    var n = d.toFixed(2);
+   document.getElementById("km").innerHTML = "Distance: " + n + " km";
   }
+
+
 
   function deg2rad(deg) {
     return deg * (Math.PI/180)
@@ -184,14 +187,13 @@ function compareLocation(){
     </script>
 
     <div class="item4">
-       <button id="Check" onclick="compareLocation()">Check progress</button>
-        <button id="Check2" onclick="getDistanceFromLatLonInKm()">Distance</button>
-        <br>
-        <p>Click the button to check your progress!</p>
+
+        <p>Click the buttons to check your progress!</p>
 
         <!-- <button onclick="getCurrentPosition()">Try It</button> -->
 
-
+        <button id="Check" onclick="compareLocation()">Check progress</button>
+        <button id="Check2" onclick="getDistanceFromLatLonInKm()">Distance</button>
         <p id="km"></p>
         <p id="result"></p>
         <p id="next"></p>
