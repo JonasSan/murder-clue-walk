@@ -50,9 +50,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/profile").hasRole("USER")
                 .and()
-                .formLogin()
+                .formLogin().defaultSuccessUrl("/findAllUsers", true)
                 .loginPage("/login").permitAll()
                 .usernameParameter("loginName");
+
+
+
 
         httpSecurity.csrf().disable();
         httpSecurity.headers().frameOptions().disable();
