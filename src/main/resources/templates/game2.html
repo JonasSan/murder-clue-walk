@@ -12,8 +12,8 @@
         <li><a class="active" href="/index">Home</a></li>
         <li><a href="/register">Register</a></li>
         <li><a href="/about">About</a></li>
-
         <li><a href="/tutorial">How To Play</a></li>
+        <li><a href="/quiz">Quiz</a></li>
     </ul>
 </div>
 <div class="grid-container">
@@ -99,7 +99,23 @@ return posA;
  }
 
 
+function getDistanceFromLatLonInKm() {
+    var R = 6371; // Radius of the earth in km
+    var dLat = deg2rad(posB.lat-posA.lat);  // deg2rad below
+    var dLon = deg2rad(posB.lng-posA.lng);
+    var a =
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(deg2rad(posA.lat)) * Math.cos(deg2rad(posB.lat)) *
+      Math.sin(dLon/2) * Math.sin(dLon/2)
+      ;
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var d = R * c; // Distance in km
+   document.getElementById("km").innerHTML = "Distance: " + d + " km";
+  }
 
+  function deg2rad(deg) {
+    return deg * (Math.PI/180)
+  }
 function compareLocation(){
 
     // console.log(posA,posB)
@@ -161,6 +177,8 @@ return false;
         <!-- <button onclick="getCurrentPosition()">Try It</button> -->
 
         <button id="Check" onclick="compareLocation()">Check progress</button>
+        <button id="Check2" onclick="getDistanceFromLatLonInKm()">Distance</button>
+        <p id="km"></p>
         <p id="result"></p>
         <p id="next"></p>
         <button onclick= "location.href='/game3'" id="hide" type="button" style="display:none">Next Clue</button>

@@ -12,8 +12,9 @@
         <li><a class="active" href="/index">Home</a></li>
         <li><a href="/register">Register</a></li>
         <li><a href="/about">About</a></li>
-
         <li><a href="/tutorial">How To Play</a></li>
+        <li><a href="/quiz">Quiz</a></li>
+
     </ul>
 </div>
 <div class="grid-container">
@@ -22,8 +23,8 @@
 
     <div class="item2">
         <div class="im">
-        <img id="image" src="images/scene.png">
-        <img id="imageKnife" src="images/knife.png">
+            <img id="image" src="images/scene.png">
+            <img id="imageKnife" src="images/knife.png">
         </div>
     </div>
     <div class="item3" id="map"></div>
@@ -33,25 +34,27 @@
         width: 100%;
         color: black;
        }
+
+
     </style>
 
-
-
-
     <script>
+
+    <!--When the page is started autoplay sound:-->
 
     window.onload = function() {
     document.getElementById("my_audio").play();
 }
 
-var clueisfound = false;
+<!--When the clue is clicked on set clueIsFound to true and delete the clue-image in the background-image-->
+
+var clueIsFound = false;
 
 document.getElementById('imageKnife').onclick = function(event) {
     document.getElementById('imageKnife').className = "hidden";
     alert("Knife added as clue");
-    clueisfound = true;
+    clueIsFound = true;
 }
-
 
 
 
@@ -99,8 +102,7 @@ return posA;
  function createMarker() {
    var Kista = { lat: 59.402435, lng: 18.040762 };
    var marker = new google.maps.Marker({ position: Kista, map: map });
-   <!--var Kista2 = { lat: 58.402435, lng: 17.946482 };-->
-   <!--var marker2 = new google.maps.Marker({ position: Kista2, map: map });-->
+
 
    posB=Kista
    return posB;
@@ -108,95 +110,112 @@ return posA;
 
 
 
+function getDistanceFromLatLonInKm() {
+    var R = 6371; // Radius of the earth in km
+    var dLat = deg2rad(posB.lat-posA.lat);  // deg2rad below
+    var dLon = deg2rad(posB.lng-posA.lng);
+    var a =
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(deg2rad(posA.lat)) * Math.cos(deg2rad(posB.lat)) *
+      Math.sin(dLon/2) * Math.sin(dLon/2)
+      ;
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var d = R * c; // Distance in km
+   document.getElementById("km").innerHTML = "Distance: " + d + " km";
+  }
+
+  function deg2rad(deg) {
+    return deg * (Math.PI/180)
+  }
+
+
 function compareLocation(){
 
-    // console.log(posA,posB)
-
-// posA = { lat: 59.402435, lng: 17.946482 };
-// posB = { lat: 58.402435, lng: 15.946482};
-
-  let distance = Math.sqrt( (posA.lat - posB.lat)**2 + (posA.lng - posB.lng)**2 ); // (((Kista.lat-Kista2.lat)^2 +(Kista.lng-Kista2.lng)2 )^0.5);
-  console.log(distance);
+      let distance = Math.sqrt( (posA.lat - posB.lat)**2 + (posA.lng - posB.lng)**2 ); // (((Kista.lat-Kista2.lat)^2 +(Kista.lng-Kista2.lng)2 )^0.5);
+      console.log(distance);
 
 
- <!--för att visa distance: -->
-  <!--document.getElementById("result").innerHTML = "You have arrived at the right location!" + distance;-->
+      if (distance < 10 && clueIsFound == true){
+      document.getElementById("result").innerHTML = "You have arrived at the right location!";
+        document.getElementById("next").innerHTML = "Proceed to the next clue.";
 
-  if (distance < 10 && clueisfound == true){
-  document.getElementById("result").innerHTML = "You have arrived at the right location!";
-    document.getElementById("next").innerHTML = "Proceed to the next clue.";
+              var x = document.getElementById("hide");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+        return true;
 
-          var x = document.getElementById("hide");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-    return true;
+      }
+      else if (distance > 10 && clueIsFound == true){
+        document.getElementById("next").innerHTML = "You are at the wrong location!";
+    return false;
+      }
+      else {
+      document.getElementById("next").innerHTML = "You have not found the clue yet!";
+    return false;
+      }
 
-  }
-  else if (distance > 10 && clueisfound == true){
-    document.getElementById("next").innerHTML = "You are at the wrong location!";
-return false;
-  }
-  else {
-  document.getElementById("next").innerHTML = "You have not found the clue yet!";
-return false;
-  }
+    }
 
-}
-
-  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-                          'Error: The Geolocation service failed.' :
-                          'Error: Your browser doesn\'t support geolocation.');
-    infoWindow.open(map);
-  }
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
 
 
-function checkButton() {
-window.location.href = "/game2";
+    function checkButton() {
+    window.location.href = "/game2";
 
-}
+    }
 
 
-</script>
 
-    <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_jwnTApaXdy0x7JR_ZqzzxL86__SQoUE&amp;libraries=geometry&amp;callback=initMap">
+
+
+    </script>
+
+    <script async="" defer=""
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_jwnTApaXdy0x7JR_ZqzzxL86__SQoUE&amp;libraries=geometry&amp;callback=initMap">
     </script>
 
     <div class="item4">
-        <br>
-        <br>
+       <button id="Check" onclick="compareLocation()">Check progress</button>
+        <button id="Check2" onclick="getDistanceFromLatLonInKm()">Distance</button>
         <br>
         <p>Click the button to check your progress!</p>
 
         <!-- <button onclick="getCurrentPosition()">Try It</button> -->
 
-        <button id="Check" onclick="compareLocation()">Check progress</button>
+
+        <p id="km"></p>
         <p id="result"></p>
         <p id="next"></p>
-        <button onclick= "checkButton()" id="hide" type="button" style="display:none">Next Clue</button>
+        <button onclick="checkButton()" id="hide" type="button" style="display:none">Next Clue</button>
         <!--<a id="hiddenButton" href="/game2">Next Clue</a>-->
 
 
     </div>
 
-<div class="item5">
-    <h2>Clue 1</h2>
+    <div class="item5">
+        <h2>Clue 1</h2>
 
-    <div class="clue">You (the detective) show up at the crime scene. There is a dead woman lying on the ground.
-        Next to her is a knife, but there doesn't seem to be any blood. There are no signs of a struggle either, but
-        the woman does not appear to have died of natural causes. Investigating the surroundings you find some footprints.
-        You decide to pick up the knife and follow the footprints.
+        <div class="clue">You (the detective) show up at the crime scene. There is a dead woman lying on the ground.
+            Next to her is a knife, but there doesn't seem to be any blood. There are no signs of a struggle either, but
+            the woman does not appear to have died of natural causes. Investigating the surroundings you find some
+            footprints.
+            You decide to pick up the knife and follow the footprints.
 
+        </div>
+        <br>
     </div>
-    <br>
-</div>
 
     <!--Infoga Score här:-->
-<div class="item6"></div>
+    <div class="item6"></div>
 </div>
 
 </div>
