@@ -50,7 +50,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/profile").hasRole("USER")
                 .and()
-                .formLogin().defaultSuccessUrl("/findAllUsers", true)
+                .formLogin().defaultSuccessUrl("/profiles", true)
                 .loginPage("/login").permitAll()
                 .usernameParameter("loginName");
 
