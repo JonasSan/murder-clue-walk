@@ -110,72 +110,68 @@ return posA;
 
 
 
-function getDistanceFromLatLonInKm() {
-    var R = 6371; // Radius of the earth in km
-    var dLat = deg2rad(posB.lat-posA.lat);  // deg2rad below
-    var dLon = deg2rad(posB.lng-posA.lng);
-    var a =
-      Math.sin(dLat/2) * Math.sin(dLat/2) +
-      Math.cos(deg2rad(posA.lat)) * Math.cos(deg2rad(posB.lat)) *
-      Math.sin(dLon/2) * Math.sin(dLon/2)
-      ;
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    var d = R * c; // Distance in km
-    var n = d.toFixed(2);
-   document.getElementById("km").innerHTML = "Distance: " + n + " km";
-  }
+function deg2rad(deg) {
+return deg * (Math.PI/180)
+}
 
 
 
-  function deg2rad(deg) {
-    return deg * (Math.PI/180)
-  }
+
 
 
 function compareLocation(){
 
-      let distance = Math.sqrt( (posA.lat - posB.lat)**2 + (posA.lng - posB.lng)**2 ); // (((Kista.lat-Kista2.lat)^2 +(Kista.lng-Kista2.lng)2 )^0.5);
-      console.log(distance);
+  var R = 6371; // Radius of the earth
+  var dLat = deg2rad(posB.lat-posA.lat);
+  var dLon = deg2rad(posB.lng-posA.lng);
+  var a =
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(posA.lat)) * Math.cos(deg2rad(posB.lat)) *
+    Math.sin(dLon/2) * Math.sin(dLon/2)
+    ;
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  var d = R * c; // Distance in km
+  var n = d.toFixed(2); // Rounded to two decimals
+  document.getElementById("km").innerHTML = "Distance to goal: " + n + " km";
 
 
-      if (distance < 10 && clueIsFound == true){
-      document.getElementById("result").innerHTML = "You have arrived at the right location!";
-        document.getElementById("next").innerHTML = "Proceed to the next clue.";
+  if (n < 10 && clueIsFound == true){
+  document.getElementById("result").innerHTML = "You have arrived at the right location!";
+    document.getElementById("next").innerHTML = "Proceed to the next clue.";
 
-              var x = document.getElementById("hide");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
-        return true;
+          var x = document.getElementById("hide");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+    return true;
 
-      }
-      else if (distance > 10 && clueIsFound == true){
-        document.getElementById("next").innerHTML = "You are at the wrong location!";
-    return false;
-      }
-      else {
-      document.getElementById("next").innerHTML = "You have not found the clue yet!";
-    return false;
-      }
+  }
+  else if (n > 10 && clueIsFound == true){
+    document.getElementById("next").innerHTML = "You are at the wrong location!";
+return false;
+  }
+  else {
+  document.getElementById("next").innerHTML = "You have not found the clue yet!";
+return false;
+  }
 
-    }
+}
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
+  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+                          'Error: The Geolocation service failed.' :
+                          'Error: Your browser doesn\'t support geolocation.');
+    infoWindow.open(map);
+  }
 
 
-    function checkButton() {
-    window.location.href = "/game2";
+function checkButton() {
+window.location.href = "/game2";
 
-    }
-
+}
 
 
 
@@ -193,7 +189,7 @@ function compareLocation(){
         <!-- <button onclick="getCurrentPosition()">Try It</button> -->
 
         <button id="Check" onclick="compareLocation()">Check progress</button>
-        <button id="Check2" onclick="getDistanceFromLatLonInKm()">Distance</button>
+        <!--<button id="Check2" onclick="getDistanceFromLatLonInKm()">Distance</button>-->
         <p id="km"></p>
         <p id="result"></p>
         <p id="next"></p>
