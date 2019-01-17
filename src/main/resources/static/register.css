@@ -60,6 +60,8 @@ li a:hover {
   padding: 30px 30px color: darkgrey;
   text-align: center;
   text: 16px;
+   border-style: double;
+   border-width: 5px;
  }
 
 /* Full-width input fields */
