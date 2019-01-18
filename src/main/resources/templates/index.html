@@ -8,6 +8,17 @@
     <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
+<audio id="sound" src="/sounds/drops.mp3" loop="loop"></audio>
+<script>
+
+    window.onload = function() {
+    document.getElementById("sound").play();
+    }
+
+    var music = document.getElementById("sound");
+music.playbackRate = 0.75;
+
+</script>
 
 
 <div>
